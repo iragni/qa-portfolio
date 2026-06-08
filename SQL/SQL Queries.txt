@@ -1,0 +1,20 @@
+1. Find customers who live in 'Lviv';
+SELECT * FROM Customers 
+WHERE city = 'Lviv';
+
+2. Find customers whose name starts with 'N';
+SELECT * FROM Customers
+WHERE CustomerName LIKE 'N%';
+
+3. Find customers who live in Ukraine and order them alphabetically by name.
+SELECT * FROM Customers
+WHERE Country = 'Ukraine'
+ORDER BY CustomerName ASC;
+
+4. Show all customers who ordered 'iPhone 15 Pro Max' and sort customers by
+name.
+SELECT c.CustomerID, c.CustomerName, c.Street, c.City, c.Country
+FROM Customers c
+JOIN Orders o ON o.CustomerID = c.CustomerID
+WHERE o.ProductName = 'iPhone 15 Pro Max'
+ORDER BY c.CustomerName ASC;
